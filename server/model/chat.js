@@ -3,15 +3,15 @@ const mongoose = require('mongoose');
 
 var chatSchema = new mongoose.Schema({
     username:{
-        type:string,
+        type:String,
         trim:true
     },
     message:{
-        type:string,
+        type:String,
         trim:true
     },
     time:{
-        type:string,
+        type:String,
         required:true
     }
 
