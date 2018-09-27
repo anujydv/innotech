@@ -5,7 +5,7 @@ var bodyParser = require('body-parser');
 
 
 var app = express();
-var routes = require('./routes/routes.js');
+var routes = require('../routes/routes.js');
 
 
 app.set("view engine", "ejs");
