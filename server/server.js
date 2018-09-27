@@ -5,9 +5,6 @@ const express = require('express');
 const socketIO = require('socket.io');
 var bodyParser = require('body-parser');
 const { generateMessage,generateLocationMessage } = require('./utils/message');
-var { mongoose } = require('./db/mongoose');
-var { Maplocation } = require('./model/maplocation');
-var { Chat } = require('./model/chat');
 const { isRealString } = require('./utils/validation');
 var routes = require('../routes/routes.js');
 
@@ -21,7 +18,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: false
 }));
-
+app.set('views',path.join(__dirname, '../views'));
 app.use('/', routes);
 io.on('connection', (socket) => {
     console.log('New user connected');
