@@ -24,6 +24,6 @@ router.get('/sanitation', function(req, res, next) {
     res.render('sanitation');
 });
 router.get('/rescue', function(req, res, next) {
-    res.render('rescue');
+    res.render('chat.html');
 });
 module.exports = router;
