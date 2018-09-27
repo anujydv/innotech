@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: false
 }));
-
+app.set('views',path.join(__dirname, '../views'));
 app.use('/', routes);
 io.on('connection', (socket) => {
     console.log('New user connected');
