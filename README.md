@@ -1,2 +1,0 @@
-# ProjectBlockchain
-Decentralized and Social
