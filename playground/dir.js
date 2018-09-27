@@ -1,1 +1,3 @@
-console.log(__dirname);
+var moment = require('moment');
+
+console.log(moment.valueOf());

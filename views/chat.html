@@ -21,6 +21,7 @@
 
     <div class="chat__footer">
       <form id="message-form">
+        <input name="name" type="text" placeholder="name" autofocus autocomplete="off"/>
         <input name="message" type="text" placeholder="Message" autofocus autocomplete="off"/>
         <button>Send</button>
       </form>
@@ -48,6 +49,7 @@
       </div>
       <div class="message__body">
         <p>
+          <h5>{{msg}}</h5>
           <a href="{{url}}" target="_blank">My current location</a>
         </p>
       </div>

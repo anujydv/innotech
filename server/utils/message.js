@@ -11,6 +11,7 @@ var generateMessage = (from, text) => {
 var generateLocationMessage = (from, latitude, longitude) => {
   return {
     from,
+    message:"Please help me!",
     url: `https://www.google.com/maps?q=${latitude},${longitude}`,
     createdAt: moment().valueOf()
   };

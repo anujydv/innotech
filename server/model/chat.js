@@ -15,6 +15,8 @@ var chatSchema = new mongoose.Schema({
         required:true
     }
 
+}, {
+    versionKey: false
 });
 
 var Chat = mongoose.model('Chat',chatSchema);

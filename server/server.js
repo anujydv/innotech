@@ -1,5 +1,6 @@
 const path = require('path');
 const http = require('http');
+var moment = require('moment');
 const express = require('express');
 const socketIO = require('socket.io');
 var bodyParser = require('body-parser');
@@ -31,12 +32,19 @@ io.on('connection', (socket) => {
 
     socket.on('createMessage', (message, callback) => {
         console.log('createMessage', message);
-        io.emit('newMessage', generateMessage(message.from, message.text));
+        var msg = generateMessage(message.from, message.text);
+        var chat = new Chat({
+            username:msg.from,
+            message:msg.text,
+            time: moment(msg.time).format('h:mm a')
+        });
+        chat.save();
+        io.emit('newMessage', msg);
         callback();
     });
 
     socket.on('createLocationMessage', (coords) => {
-        io.emit('newLocationMessage', generateLocationMessage('Admin', coords.latitude, coords.longitude));
+        io.emit('newLocationMessage', generateLocationMessage('Help-Seeker', coords.latitude, coords.longitude));
     });
 
     socket.on('disconnect', () => {
