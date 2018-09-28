@@ -7,6 +7,7 @@ const mongoose = require("mongoose");
 var bodyParser = require('body-parser');
 const { generateMessage, generateLocationMessage } = require('./utils/message');
 const { isRealString } = require('./utils/validation');
+const {Chat} = require('./model/chat');
 var routes = require('../routes/routes.js');
 
 mongoose.connect("mongodb://localhost/rescue");
