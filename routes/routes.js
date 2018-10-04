@@ -5,6 +5,9 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
     res.render('main');
 });
+router.get('/demo', function(req, res, next) {
+    res.render('demo/demo.html');
+});
 router.get('/clothing', function(req, res, next) {
     res.render('clothing');
 });
@@ -25,5 +28,8 @@ router.get('/sanitation', function(req, res, next) {
 });
 router.get('/rescue', function(req, res, next) {
     res.render('chat.html');
+});
+router.get('/login', function(req, res, next) {
+    res.render('login.html');
 });
 module.exports = router;
