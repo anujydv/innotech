@@ -2,24 +2,24 @@ const mongoose = require('mongoose');
 
 
 var mapSchema = new mongoose.Schema({
-    longitude: {
-        type: String,
-        trim: true
-    },
-    latitude: {
+    lon: {
         type: String,
         required: true
     },
-    name: {
+    lat: {
+        type: String,
+        required: true
+    },
+    camp: {
         type: String,
         required: true
     },
     area: {
-        type: string,
+        type: String,
         required: true
     },
     pincode: {
-        type: number,
+        type: Number,
         required: true
     }
 
@@ -29,6 +29,4 @@ var mapSchema = new mongoose.Schema({
 
 var map = mongoose.model('map', mapSchema);
 
-module.exports = {
-    map
-}
+module.exports = map;
