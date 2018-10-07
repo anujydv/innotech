@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="https://unpkg.com/leaflet@1.0.0/dist/leaflet.css" rel="stylesheet" type="text/css" />
-<script src="https://unpkg.com/leaflet@1.0.0/dist/leaflet-src.js"></script>
-
-<script src="https://unpkg.com/sql.js@0.5.0/js/sql.js"></script>
-
-<script src="js/Leaflet.TileLayer.MBTiles.js"></script>
+<link href="css/leaflet.css" rel="stylesheet" type="text/css" />
+<script src="lib/leaflet.js"></script>
+<script src="lib/sql.js"></script>
+<!-- <link href="https://unpkg.com/leaflet@1.3.2/dist/leaflet.css" rel="stylesheet" type="text/css" /> -->
+<!-- <script src="https://unpkg.com/leaflet@1.3.2/dist/leaflet-src.js"></script> -->
+<!-- <script src="https://unpkg.com/sql.js@0.5.0/js/sql.js"></script> -->
+<script src="lib/Leaflet.TileLayer.MBTiles.js"></script>
 
   <meta charset="utf-8">
   <title>demo</title>
@@ -26,10 +27,13 @@
 
     var map = new L.Map('map').fitWorld();
 
-	var mb = L.tileLayer.mbTiles('mbtiles/countries-raster.mbtiles', {
+var mb = L.tileLayer.mbTiles('mbtiles/new-delhi1.mbtiles', {
+	// var mb = L.tileLayer.mbTiles('mbtiles/countries-raster.mbtiles', {
 		minZoom: 0,
 		maxZoom: 14
 	}).addTo(map);
+map.setView(new L.LatLng(28.57600, 77.21250), 10);
+// L.marker([28.598271999999998, 77.3718016]).addTo(map);
 
 	mb.on('databaseloaded', function(ev) {
 		console.info('MBTiles DB loaded', ev);
