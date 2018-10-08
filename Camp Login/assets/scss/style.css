@@ -1,0 +1,309 @@
+@import url(../css/animate.css);
+.gaugejs-wrap {
+  position: relative;
+  margin: 0 auto; }
+  .gaugejs-wrap canvas.gaugejs {
+    width: 100% !important;
+    height: auto !important; }
+  .gaugejs-wrap i, .gaugejs-wrap.sparkline .value {
+    top: 50%;
+    display: block;
+    width: 100%;
+    text-align: center; }
+  .gaugejs-wrap i {
+    position: absolute;
+    left: 0;
+    z-index: 1000;
+    margin-top: -15px;
+    font-size: 30px; }
+  .gaugejs-wrap.type-2 .value {
+    display: block;
+    margin-top: -85px; }
+  .gaugejs-wrap.type-2 label {
+    display: block;
+    margin-top: -10px;
+    font-size: 10px;
+    font-weight: 600;
+    color: #9da0a8;
+    text-transform: uppercase; }
+  .gaugejs-wrap.sparkline {
+    position: relative; }
+    .gaugejs-wrap.sparkline .value {
+      position: absolute;
+      margin-top: -5px;
+      font-size: 10px;
+      line-height: 10px; }
+
+.bg-flat-color-1 {
+  background: #20a8d8; }
+
+.bg-flat-color-2 {
+  background: #63c2de; }
+
+.bg-flat-color-3 {
+  background: #ffc107; }
+
+.bg-flat-color-4 {
+  background: #f86c6b; }
+
+.bg-flat-color-5 {
+  background: #4dbd74; }
+
+.transition {
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease; }
+
+body {
+  background: #f1f2f7;
+  display: table;
+  font-family: 'Open Sans' sans-serif !important;
+  font-size: 16px;
+  width: 100%; }
+
+div[class*="col-"] {
+  float: left; }
+
+p {
+  font-size: 16px;
+  font-family: 'Open Sans' sans-serif;
+  font-weight: 400;
+  line-height: 24px;
+  color: #878787; }
+
+p:focus {
+  border: none;
+  outline: 0; }
+
+a, button {
+  text-decoration: none;
+  outline: none !important;
+  color: #878787;
+  -webkit-transition: all 0.25s ease;
+  -moz-transition: all 0.25s ease;
+  -ms-transition: all 0.25s ease;
+  -o-transition: all 0.25s ease;
+  transition: all 0.25s ease; }
+
+a:hover,
+a:focus {
+  text-decoration: none;
+  color: #000; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0; }
+
+ul,
+ol {
+  padding-left: 0; }
+
+.btn:focus,
+button:focus {
+  box-shadow: none !important;
+  outline: 0; }
+
+img {
+  max-width: 100%; }
+
+.btn,
+button,
+input,
+textarea {
+  box-shadow: none;
+  outline: 0 !important; }
+
+.no-padding {
+  padding: 0 !important; }
+
+/* Global Styles */
+/* Main Styles */
+
+
+header .form-inline {
+  background: #263238;
+  display: none;
+  height: 70px;
+  margin: 0;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 9999; }
+  header .form-inline .search-form {
+    height: 100%;
+    max-width: 1025px;
+    margin: 0 auto;
+    position: relative; }
+    header .form-inline .search-form input[type="text"] {
+      background: #263238;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+      color: #d3d3d3;
+      font-size: 16px;
+      height: inherit;
+      margin-right: 0 !important;
+      padding: 10px 36px 10px 15px;
+      width: 100%; }
+    header .form-inline .search-form input[type="text"].active,
+    header .form-inline .search-form input[type="text"]:focus {
+      border-color: rgba(0, 0, 0, 0.125);
+      outline: 0; }
+
+    header .form-inline .search-form button:active,
+    header .form-inline .search-form button:focus,
+    header .form-inline .search-form button:visited,
+    header .form-inline .search-form .btn-outline-success:hover {
+      background: transparent;
+      border: none !important;
+      box-shadow: none;
+      outline: 0 !important; }
+    header .form-inline .search-form.close {
+      display: none; }
+
+.header-left.open .form-inline {
+  display: block; }
+
+.buttons button { */
+  margin: 2px 0; }
+
+
+/* Button Reset */
+.btn, .button {
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  transition: all .15s ease-in-out;
+  border-radius: 0;
+  cursor: pointer; }
+
+/* Icons */
+
+.login-logo {
+  text-align: center;
+  margin-bottom: 15px; }
+  .login-logo span {
+    color: #ffffff;
+    font-size: 24px; }
+
+.login-content {
+  max-width: 540px;
+  margin: 8vh auto; }
+
+.login-form {
+  background: #ffffff;
+  padding: 30px 30px 20px;
+  border-radius: 2px; }
+
+.login-form h4 {
+  color: #878787;
+  text-align: center;
+  margin-bottom: 50px; }
+
+.login-form .checkbox {
+  color: #878787; }
+
+.login-form .checkbox label {
+  text-transform: none; }
+
+.login-form .btn {
+  width: 100%;
+  text-transform: uppercase;
+  font-size: 14px;
+  padding: 15px;
+  border: 0px; }
+
+.login-form label {
+  color: #878787;
+  text-transform: uppercase; }
+
+.login-form label a {
+  color: #ff2e44; }
+
+
+.register-link a {
+  color: #ff2e44; }
+
+.cpu-load {
+  width: 100%;
+  height: 272px;
+  font-size: 14px;
+  line-height: 1.2em; }
+
+.cpu-load-data-content {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 40px; }
+
+.cpu-load-data {
+  margin-bottom: 30px; }
+
+.cpu-load-data li {
+  display: inline-block;
+  width: 32.5%;
+  text-align: center;
+  border-right: 1px solid #e7e7e7; }
+
+.cpu-load-data li:last-child {
+  border-right: 0px; }
+
+.nestable-cart {
+  overflow: hidden; }
+
+/* Forms */
+.input-group-addon {
+  background-color: transparent;
+  border-left: 0; }
+
+.input-group-addon, .input-group-btn {
+  white-space: nowrap;
+  vertical-align: middle; }
+
+.input-group-addon {
+  padding: .5rem .75rem;
+  margin-bottom: 0;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.25;
+  color: #495057;
+  text-align: center;
+  background-color: #e9ecef;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: .25rem; }
+
+.flot-container {
+  box-sizing: border-box;
+  width: 100%;
+  height: 275px;
+  padding: 20px 15px 15px;
+  margin: 15px auto 30px;
+  background: transparent; }
+
+.flot-pie-container {
+  height: 275px; }
+
+.flotBar-container {
+  height: 275px; }
+
+.flot-line {
+  width: 100%;
+  height: 100%;
+  font-size: 14px;
+  line-height: 1.2em; }
+
+.legend table {
+  border-spacing: 5px; }
+
+  .btn-toolbar .btn-outline-secondary:hover {
+    background-color: #212529;
+    border-color: #212529;
+    color: #fff; }
