@@ -10,8 +10,8 @@ const { isRealString } = require('./utils/validation');
 const { Chat } = require('./model/chat');
 const { Map } = require('./model/camplocation');
 const { Login } = require('./model/login');
-var routes = require('../routes/routes.js');
-
+var routes = require('../routes/routes');
+var login = require('../routes/login');
 mongoose.connect("mongodb://localhost/rescue");
 
 var app = express();
@@ -26,6 +26,7 @@ app.use(bodyParser.urlencoded({
 }));
 app.set('views', path.join(__dirname, '../views'));
 app.use('/', routes);
+app.use('/sigin', login);
 io.on('connection', (socket) => {
     console.log('New user connected');
 

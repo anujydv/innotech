@@ -9,7 +9,7 @@ router.get('/demo', function(req, res, next) {
     res.render('demo/demo.html');
 });
 router.get('/camplogin', function(req, res, next) {
-    res.render('camp/login');
+    res.render('camp/login', { verified: 1 });
 });
 router.get('/addcamp', function(req, res, next) {
     res.render('camp/register');
