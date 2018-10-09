@@ -12,5 +12,4 @@ var loginSchema = mongoose.Schema({
 });
 
 var Login = mongoose.model('Login', loginSchema);
-
 module.exports = Login;

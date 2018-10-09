@@ -1,5 +1,6 @@
 <!doctype html>
 <html class="no-js" lang="">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/scss/style.css">
 </head>
+
 <body class="bg-dark">
     <div class="sufee-login d-flex align-content-center flex-wrap">
         <div class="container">
@@ -16,48 +18,49 @@
                     <h1 style="color:white;">Setup Your Camp</h1>
                 </div>
                 <div class="login-form">
-                    <form>
-                        <div class="form-group">
-                          <!-- Fillups -->
+                    <form action="/addlocation" method="POST">
+                        <!-- <div class="form-group"> -->
                             <label>Camp Name</label>
-                            <input type="email" class="form-control" placeholder="Camp Name">
-                        </div>
-                        <div class="form-group">
+                            <input type="text" class="form-control" name="campname" placeholder="Camp Name">
+                        <!-- </div> -->
+                        <!-- <div class="form-group"> -->
                             <label>Camp Owner</label>
-                            <input type="test" class="form-control" placeholder="Camp Owner">
-                        </div>
-                        <div class="form-group">
+                            <input type="test" class="form-control" name="campowner" placeholder="Camp Owner">
+                        <!-- </div> -->
+                        <!-- <div class="form-group"> -->
                             <label>Active Mobile No.</label>
-                            <input type="text" class="form-control" placeholder="Mobile Number">
-                        </div>
-                        <div class="form-group">
+                            <input type="text" class="form-control" name="mobile" placeholder="Mobile Number">
+                        <!-- </div> -->
+                        <!-- <div class="form-group"> -->
                             <label>Address</label>
-                            <input type="text" class="form-control" placeholder="Address">
-                        </div>
-                        <div class="form-group">
+                            <input type="text" class="form-control" name="address" placeholder="Address">
+                        <!-- </div> -->
+                        <!-- <div class="form-group"> -->
                             <label>Pincode</label>
-                            <input type="text" class="form-control" placeholder="Pincode">
-                        </div>
+                            <input type="text" class="form-control" name="pincode" placeholder="Pincode">
+                        <!-- </div> -->
 
-                              <!-- Checkbox-->
-                              <div class="form-group">
-                                <h5>Helping Us With</h5>
-                                <input type="checkbox">Shelter</input>
-                                <input type="checkbox">Food</input>
-                                <input type="checkbox">Water</input><br>
-                                <input type="checkbox">Clothing</input>
-                                <input type="checkbox">Medical Care</input>
-                                <input type="checkbox">Sanitation</input>
-                              </div>
+                        <!-- Checkbox-->
+                        <!-- <div class="form-group"> -->
+                            <h5>Helping Us With</h5>
+                            <input type="checkbox" name="shelter">Shelter</input>
+                            <input type="checkbox" name="food">Food</input>
+                            <input type="checkbox" name="water">Water</input><br>
+                            <input type="checkbox" name="clothing">Clothing</input>
+                            <input type="checkbox" name="medicalCare">Medical Care</input>
+                            <input type="checkbox" name="sanitation">Sanitation</input>
+                        <!-- </div> -->
 
-                              <!-- Location -->
+                        <!-- Location -->
                         <button type="button" class="btn btn-primary btn-flat m-b-30 m-t-20">Your Location</button>
                         <h6>Correct Us If We Aren't Right</h3>
-                        <div class="form-group" style="margin-bottom:0px;">
-                          <input type="text" name="latitude" style="border:0px; border-width:inherit;border-color:transparent;" placeholder="latitude"></input><br>
-                          <input type="text" name="longitude" style="border:0px; border-width:inherit;border-color:transparent;padding-bottom:5px;" placeholder="longitude"></input>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">Register</button>
+                            <!-- <div class="form-group" style="margin-bottom:0px;"> -->
+                                <input type="text" name="latitude" style="border:0px; border-width:inherit;border-color:transparent;"
+                                    placeholder="latitude"></input><br>
+                                <input type="text" name="longitude" style="border:0px; border-width:inherit;border-color:transparent;padding-bottom:5px;"
+                                    placeholder="longitude"></input>
+                            <!-- </div> -->
+                            <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">Register</button>
                     </form>
                 </div>
             </div>
@@ -72,4 +75,5 @@
 
 
 </body>
+
 </html>

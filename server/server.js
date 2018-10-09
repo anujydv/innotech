@@ -3,30 +3,42 @@ const http = require('http');
 var moment = require('moment');
 const express = require('express');
 const socketIO = require('socket.io');
-const mongoose = require("mongoose");
+const mongoose = require("./db/mongoose");
 var bodyParser = require('body-parser');
-const { generateMessage, generateLocationMessage } = require('./utils/message');
-const { isRealString } = require('./utils/validation');
-const { Chat } = require('./model/chat');
-const { Map } = require('./model/camplocation');
-const { Login } = require('./model/login');
+
+const {
+    generateMessage,
+    generateLocationMessage
+} = require('./utils/message');
+const {
+    isRealString
+} = require('./utils/validation');
+const Chat = require('./model/chat');
+const Map = require('./model/camplocation');
+const Login = require('./model/login');
+
 var routes = require('../routes/routes');
 var login = require('../routes/login');
-mongoose.connect("mongodb://localhost/rescue");
+var camplocation = require('../routes/camplocation');
 
 var app = express();
-app.set("view engine", "ejs");
-app.engine('html', require('ejs').renderFile);
 var server = http.createServer(app);
 var io = socketIO.listen(server);
+
+app.set("view engine", "ejs");
+app.set('views', path.join(__dirname, '../views'));
+app.engine('html', require('ejs').renderFile);
+
 app.use(express.static(path.join(__dirname, '../public')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: false
 }));
-app.set('views', path.join(__dirname, '../views'));
+
 app.use('/', routes);
 app.use('/sigin', login);
+app.use('/addlocation', camplocation);
+
 io.on('connection', (socket) => {
     console.log('New user connected');
 
@@ -56,77 +68,7 @@ io.on('connection', (socket) => {
     });
 });
 
-/*** map.create([{
-"lat": 68.2,
-"camp": "Anant Flood Relief",
-"lon": 48.3,
-"pincode": 225548,
-"area": "Sikkim"
-}, {
-    "lat": 48.3,
-    "camp": "Pro Noobs Relief Camp",
-    "lon": 68.2,
-    "pincode": 225548,
-    "area": "Kerala"
-}, {
-    "lat": 48.3,
-    "camp": "Relief Camp Flood",
-    "lon": 78.6,
-    "pincode": 201206,
-    "area": "Delhi"
-}, {
-    "lat": 48.3,
-    "camp": "Anant Flood Relief",
-    "lon": 48.3,
-    "pincode": 201278,
-    "area": "Kadernath"
-}, {
-    "lat": 28.9,
-    "camp": "Nooby Devs Camp for Relief",
-    "lon": 48.3,
-    "pincode": 201278,
-    "area": "Chennai"
-}, {
-    "lat": 42.1,
-    "camp": "Atom Services Relief Yogana",
-    "lon": 58.3,
-    "pincode": 201206,
-    "area": "Kerala"
-}, {
-    "lat": 78.6,
-    "camp": "Anant Flood Relief",
-    "lon": 78.6,
-    "pincode": 201206,
-    "area": "Sikkim"
-}, {
-    "lat": 58.3,
-    "camp": "Anant Flood Relief",
-    "lon": 28.9,
-    "pincode": 201206,
-    "area": "Kerala"
-}, {
-    "lat": 48.3,
-    "camp": "Nooby Devs Camp for Relief",
-    "lon": 78.6,
-    "pincode": 201206,
-    "area": "Kadernath"
-}, {
-    "lat": 48.3,
-    "camp": "Pro Noobs Relief Camp",
-    "lon": 62.2,
-    "pincode": 247001,
-    "area": "Kadernath"
-}, {
-    "lat": 68.2,
-    "camp": "Nooby Devs Camp for Relief",
-    "lon": 58.3,
-    "pincode": 201278,
-    "area": "Kadernath"
-}]);
-**/
-
-
 const port = process.env.PORT || 3000;
-server.listen(port, function() {
+server.listen(port, function () {
     console.log("Server running at port " + port);
 });
