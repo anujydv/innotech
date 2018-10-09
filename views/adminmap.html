@@ -10,14 +10,25 @@
     <!-- <link rel="apple-touch-icon" href="apple-icon.png"> -->
     <!-- <link rel="shortcut icon" href="favicon.ico"> -->
     <!-- <link rel="stylesheet" href="assets/css/normalize.css"> -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
     <!-- <link rel="stylesheet" href="assets/css/themify-icons.css"> -->
     <!-- <link rel="stylesheet" href="assets/css/flag-icon.min.css"> -->
     <!-- <link rel="stylesheet" href="assets/css/cs-skin-elastic.css"> -->
-    <link rel="stylesheet" href="assets/scss/style.css">
     <!-- <link href="assets/css/lib/vector-map/jqvmap.min.css" rel="stylesheet"> -->
     <!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'> -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/scss/style.css">
+    <link href="css/leaflet.css" rel="stylesheet" type="text/css" />
+    <script src="lib/leaflet.js"></script>
+    <script src="lib/sql.js"></script>
+    <script src="lib/Leaflet.TileLayer.MBTiles.js"></script>
+    <style>
+        #map {
+        width: 100%;
+        height: 540px;
+        border: 3px solid #8C8C8C;
+    }
+</style>
 </head>
 
 <body>
@@ -47,7 +58,7 @@
                             aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Add New Camp</a>
                     </li>
                     <li class="menu-item">
-                        <a href="/das-map" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                        <a href="/map" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Map</a>
                     </li>
                     <li class="menu-item">
@@ -131,6 +142,7 @@
         </header><!-- /header -->
         <!-- Header-->
         <div class="content mt-3">
+            <div id='map'></div>
 
         </div> <!-- .content -->
     </div><!-- /#right-panel -->
@@ -138,9 +150,27 @@
     <!-- Right Panel -->
 
     <script src="assets/js/vendor/jquery-2.1.4.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        var map = new L.Map('map').fitWorld();
+
+        var mb = L.tileLayer.mbTiles('mbtiles/new-delhi1.mbtiles', {
+            // var mb = L.tileLayer.mbTiles('mbtiles/countries-raster.mbtiles', {
+            minZoom: 0,
+            maxZoom: 14
+        }).addTo(map);
+        map.setView(new L.LatLng(28.57600, 77.21250), 10);
+        // L.marker([28.598271999999998, 77.3718016]).addTo(map);
+
+        mb.on('databaseloaded', function (ev) {
+            console.info('MBTiles DB loaded', ev);
+        });
+        mb.on('databaseerror', function (ev) {
+            console.info('MBTiles DB error', ev);
+        });
+    </script>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script> -->
     <!-- <script src="assets/js/plugins.js"></script> -->
-    <script src="assets/js/main.js"></script>
     <!-- <script src="assets/js/lib/chart-js/Chart.bundle.js"></script> -->
     <!-- <script src="assets/js/dashboard.js"></script> -->
     <!-- <script src="assets/js/widgets.js"></script> -->

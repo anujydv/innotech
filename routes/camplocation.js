@@ -37,7 +37,7 @@ router.post('/', (req, res) => {
     };
     var Mapdata = new Map(campdata);
     Mapdata.save();
-    res.render('camp/register');
+    res.render('register');
 });
 
 var checkavailability = (str)=>{

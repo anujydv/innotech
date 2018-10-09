@@ -14,9 +14,9 @@ router.post('/', (req, res) => {
     Login.find(login, (err, doc) => {
         if (doc.length === 0) {
             var flag = 0;
-            res.render('camp/login', { verified: flag });
+            res.render('camplogin', { verified: flag });
         } else {
-            res.render('camp/register');
+            res.render('admin.html');
         }
     });
 });

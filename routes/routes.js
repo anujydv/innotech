@@ -1,18 +1,9 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET home page. */
+// rescue page routes
 router.get('/', function(req, res, next) {
     res.render('main');
-});
-router.get('/demo', function(req, res, next) {
-    res.render('demo/demo.html');
-});
-router.get('/camplogin', function(req, res, next) {
-    res.render('camp/login', { verified: 1 });
-});
-router.get('/addcamp', function(req, res, next) {
-    res.render('camp/register');
 });
 router.get('/clothing', function(req, res, next) {
     res.render('clothing');
@@ -38,4 +29,24 @@ router.get('/rescue', function(req, res, next) {
 router.get('/login', function(req, res, next) {
     res.render('login.html');
 });
+
+// camp dashboard routes
+router.get('/map', function (req, res, next) {
+    res.render('map/demo.html');
+});
+router.get('/camplogin', function (req, res, next) {
+    res.render('login', {
+        verified: 1
+    });
+});
+router.get('/das-map',(req,res,next)=>{
+    res.render('adminmap.html');
+});
+router.get('/dashboard', function (req, res, next) {
+    res.render('admin.html');
+});
+router.get('/addcamp', function (req, res, next) {
+    res.render('register');
+});
+
 module.exports = router;

@@ -1,0 +1,87 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Camp Registration</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/scss/style.css">
+    <style>
+        .form-control{
+        margin-top: 2px;
+        margin-bottom: 5px;
+    }
+    .m-b-30{
+        margin: 3px 0;
+    }
+    </style>
+</head>
+
+<body class="bg-dark">
+    <div class="sufee-login d-flex align-content-center flex-wrap">
+        <div class="container">
+            <div class="login-content">
+                <div class="login-logo">
+                    <h1 style="color:white;">Setup Your Camp</h1>
+                </div>
+                <div class="login-form">
+                    <form action="/addlocation" method="POST">
+                        <label>Camp Name</label>
+                        <input type="text" class="form-control" name="campname" placeholder="Camp Name">
+                        <label>Camp Owner</label>
+                        <input type="test" class="form-control" name="campowner" placeholder="Camp Owner">
+                        <label>Active Mobile No.</label>
+                        <input type="text" class="form-control" name="mobile" placeholder="Mobile Number">
+                        <label>Address</label>
+                        <input type="text" class="form-control" name="address" placeholder="Address">
+                        <label>Pincode</label>
+                        <input type="text" class="form-control" name="pincode" placeholder="Pincode">
+
+                        <!-- Checkbox-->
+                        <h5>Helping Us With</h5>
+                        <label style="padding:15px;">
+                            <input type="checkbox" class="form-check-input" name="shelter">Shelter
+                        </label>
+                        <label style="padding:15px;">
+                            <input type="checkbox" class="form-check-input" name="food">Food
+                        </label>
+                        <label style="padding:15px;">
+                            <input type="checkbox" class="form-check-input" name="water">Water
+                        </label>
+                        <label style="padding:15px;">
+                            <input type="checkbox" class="form-check-input" name="clothing">Clothing
+                        </label>
+                        <br>
+                        <label style="padding:15px;">
+                            <input type="checkbox" class="form-check-input" name="medicalCare">Medical Care
+                        </label>
+                        <label style="padding:15px;">
+                            <input type="checkbox" class="form-check-input" name="sanitation">Sanitation
+                        </label>
+
+                        <!-- Location -->
+                        <input type="text" name="latitude" class="form-control" style="border:0px; border-width:inherit;border-color:transparent;"
+                        placeholder="latitude">
+                        <input type="text" name="longitude" class="form-control" style="border:0px; border-width:inherit;border-color:transparent;padding-bottom:5px;"
+                        placeholder="longitude">
+                        <h6 style="margin:2px 0;">Correct Us If We Aren't Right</h6>
+                            <button type="button" class="btn btn-primary btn-flat m-b-30 m-t-20">Your Location</button>
+                            <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="assets/js/vendor/jquery-2.1.4.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/plugins.js"></script>
+    <script src="assets/js/main.js"></script>
+
+
+</body>
+
+</html>
