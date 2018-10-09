@@ -8,6 +8,12 @@ router.get('/', function(req, res, next) {
 router.get('/demo', function(req, res, next) {
     res.render('demo/demo.html');
 });
+router.get('/camplogin', function(req, res, next) {
+    res.render('camp/login');
+});
+router.get('/addcamp', function(req, res, next) {
+    res.render('camp/register');
+});
 router.get('/clothing', function(req, res, next) {
     res.render('clothing');
 });

@@ -7,7 +7,9 @@ const mongoose = require("mongoose");
 var bodyParser = require('body-parser');
 const { generateMessage, generateLocationMessage } = require('./utils/message');
 const { isRealString } = require('./utils/validation');
-const {Chat} = require('./model/chat');
+const { Chat } = require('./model/chat');
+const { Map } = require('./model/camplocation');
+const { Login } = require('./model/login');
 var routes = require('../routes/routes.js');
 
 mongoose.connect("mongodb://localhost/rescue");
@@ -22,7 +24,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: false
 }));
-const map = require('./model/maplocation');
 app.set('views', path.join(__dirname, '../views'));
 app.use('/', routes);
 io.on('connection', (socket) => {
@@ -36,8 +37,8 @@ io.on('connection', (socket) => {
         console.log('createMessage', message);
         var msg = generateMessage(message.from, message.text);
         var chat = new Chat({
-            username:msg.from,
-            message:msg.text,
+            username: msg.from,
+            message: msg.text,
             time: moment(msg.time).format('h:mm a')
         });
         chat.save();
