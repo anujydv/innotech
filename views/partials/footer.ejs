@@ -44,7 +44,22 @@
 <script src="/js/breakpoints.min.js"></script>
 <script src="/js/util.js"></script>
 <script src="/js/main.js"></script>
+<script>
+    var map = new L.Map('map').fitWorld();
 
+    var mb = L.tileLayer.mbTiles('mbtiles/new-delhi1.mbtiles', {
+        minZoom: 0,
+        maxZoom: 14
+    }).addTo(map);
+    map.setView(new L.LatLng(28.57600, 77.21250), 10);
+
+    mb.on('databaseloaded', function (ev) {
+        console.info('MBTiles DB loaded', ev);
+    });
+    mb.on('databaseerror', function (ev) {
+        console.info('MBTiles DB error', ev);
+    });
+</script>
 </body>
 
 </html>
