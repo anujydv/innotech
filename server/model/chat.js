@@ -13,14 +13,9 @@ var chatSchema = new mongoose.Schema({
         default: ""
     },
     timestamp: {
-        time: {
-            type: String,
-            required: true
-        },
-        date: {
             type: Date,
-            default: Date.now()
-        }
+            require:true,
+            default:Date.now()
     },
     location: {
         lat: {
@@ -38,6 +33,4 @@ var chatSchema = new mongoose.Schema({
 
 var Chat = mongoose.model('Chat', chatSchema);
 
-module.exports = {
-    Chat
-}
+module.exports = Chat;

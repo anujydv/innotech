@@ -891,3 +891,25 @@ code {
 			margin-top: 0;
 			padding-top: 0;
 		}
+		#page-icon-list{
+			color: #f56a6a;
+			margin: 8px;
+			font-size: 20px;
+		}
+		.after{
+			color: #3d4449;
+			content: "   /";
+			font-size: 20px;
+		}
+		#page-icon-map{
+			color:#8C8C8C;
+			margin: 8px;
+			font-size: 20px;
+		}
+
+		div.page-heading{
+			padding: 5px 0;
+			text-align: center;
+			font-size: 18px;
+			margin: 2px 0;
+		}

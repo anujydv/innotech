@@ -14,8 +14,6 @@ const {
     isRealString
 } = require('./utils/validation');
 const Chat = require('./model/chat');
-const Map = require('./model/camplocation');
-const Login = require('./model/login');
 
 var routes = require('../routes/routes');
 var login = require('../routes/login');
@@ -40,8 +38,6 @@ app.use('/sigin', login);
 app.use('/addlocation', camplocation);
 
 io.on('connection', (socket) => {
-    console.log('New user connected');
-
     socket.emit('newMessage', generateMessage('Help Team', 'Message your location or drop message we help you'));
 
     socket.broadcast.emit('newMessage', generateMessage('Help Team', 'New User Connected'));
@@ -52,8 +48,8 @@ io.on('connection', (socket) => {
         var chat = new Chat({
             username: msg.from,
             message: msg.text,
-            time: moment(msg.time).format('h:mm a')
         });
+
         chat.save();
         io.emit('newMessage', msg);
         callback();
