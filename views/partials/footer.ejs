@@ -1,6 +1,7 @@
 <!-- Sidebar -->
 <div id="sidebar">
     <div class="inner">
+        <!-- <button onclick="getLocation()" type="button">Send Location</button> -->
 
         <!-- Menu -->
         <nav id="menu">
@@ -47,18 +48,44 @@
 <script>
     var map = new L.Map('map').fitWorld();
 
-    var mb = L.tileLayer.mbTiles('mbtiles/new-delhi1.mbtiles', {
+    var mb = L.tileLayer.mbTiles('mbtiles/new-delhi.mbtiles', {
         minZoom: 0,
         maxZoom: 14
     }).addTo(map);
     map.setView(new L.LatLng(28.57600, 77.21250), 10);
 
-    mb.on('databaseloaded', function (ev) {
+    mb.on('databaseloaded', function(ev) {
         console.info('MBTiles DB loaded', ev);
     });
-    mb.on('databaseerror', function (ev) {
+    mb.on('databaseerror', function(ev) {
         console.info('MBTiles DB error', ev);
     });
+
+    getLocation();
+    var doc = document.querySelector("#name").value;
+    doc = JSON.parse(doc);
+    for (var i = 0; i < doc.length; i++) {
+        var str = "<h3>" + doc[i].campname + '</h3><br><b>' + doc[i].address + "," + doc[i].pincode + "</b>";
+        console.log(str);
+
+        L.marker([doc[i].location.lat, doc[i].location.lon]).addTo(map).bindPopup(str).openPopup();
+
+    }
+
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        }
+    }
+
+    function showPosition(position) {
+        var lat = position.coords.latitude;
+        console.log(lat);
+        var lon = position.coords.longitude;
+        console.log(lon);
+        L.marker([lat, lon]).addTo(map).bindPopup("<b>your location</b>").openPopup();
+        console.log(lat, lon);
+    }
 </script>
 </body>
 
