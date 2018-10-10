@@ -33,6 +33,7 @@
         <!-- Footer -->
         <footer id="footer">
             <p class="copyright">&copy;All rights are reserved.</p>
+
         </footer>
 
     </div>
@@ -64,19 +65,30 @@
     getLocation();
     var doc = document.querySelector("#name").value;
     doc = JSON.parse(doc);
+    var str1 = '';
+    var arr = [];
     for (var i = 0; i < doc.length; i++) {
         var str = "<h3>" + doc[i].campname + '</h3><br><b>' + doc[i].address + "," + doc[i].pincode + "</b>";
-        console.log(str);
+        arr.push([doc[i].location.lat, doc[i].location.lon]);
 
         L.marker([doc[i].location.lat, doc[i].location.lon]).addTo(map).bindPopup(str).openPopup();
+        str1 += '<div class="panel"><div class="camp-heading"><h3><a href="#"><span class="icon"><i class="fas fa-building">' + doc[i].campname + '</i></span></a></h3></div><span><ul>' + doc[i].address + "," + doc[i].pincode + '</ul></span></div>';
 
     }
+    var div = document.createElement('div');
+    div.className = 'row';
+    div.innerHTML = str1
+    document.querySelector('.data').appendChild(div);
 
     function getLocation() {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(showPosition);
         }
     }
+
+    // var arr2 = [lat, lon];
+
+
 
     function showPosition(position) {
         var lat = position.coords.latitude;
@@ -85,6 +97,15 @@
         console.log(lon);
         L.marker([lat, lon]).addTo(map).bindPopup("<b>your location</b>").openPopup();
         console.log(lat, lon);
+        for (var j = 0; j < arr.length; j++) {
+            var latlons = [arr[j],
+                [lat, lon]
+            ]
+            var polyline = L.polyline(latlons, {
+                color: 'red'
+            }).addTo(map);
+            map.fitBounds(polyline.getBounds());
+        }
     }
 </script>
 </body>

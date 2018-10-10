@@ -18,13 +18,35 @@ router.get('/', function(req, res, next) {
     res.render('main');
 });
 router.get('/clothing', function(req, res, next) {
-    res.render('clothing');
+    Map.find({
+        'helpavailable.clothing': 1
+    }, function(err, doc) {
+        doc = JSON.stringify(doc);
+        res.render('clothing', {
+            data: doc
+        });
+    });
 });
 router.get('/food', function(req, res, next) {
-    res.render('food');
+    Map.find({
+        'helpavailable.food': 1
+    }, function(err, doc) {
+        doc = JSON.stringify(doc);
+        res.render('food', {
+            data: doc
+        });
+    });
+
 });
 router.get('/shelter', function(req, res, next) {
-    res.render('shelter');
+    Map.find({
+        'helpavailable.shelter': 1
+    }, function(err, doc) {
+        doc = JSON.stringify(doc);
+        res.render('shelter', {
+            data: doc
+        });
+    });
 });
 router.get('/water', function(req, res, next) {
     Map.find({
@@ -35,10 +57,24 @@ router.get('/water', function(req, res, next) {
     });
 });
 router.get('/medicalCare', function(req, res, next) {
-    res.render('medicalCare');
+    Map.find({
+        'helpavailable.medicalCare': 1
+    }, function(err, doc) {
+        doc = JSON.stringify(doc);
+        res.render('medicalCare', {
+            data: doc
+        });
+    });
 });
 router.get('/sanitation', function(req, res, next) {
-    res.render('sanitation');
+    Map.find({
+        'helpavailable.sanitation': 1
+    }, function(err, doc) {
+        doc = JSON.stringify(doc);
+        res.render('sanitation', {
+            data: doc
+        });
+    });
 });
 router.get('/rescue', function(req, res, next) {
     res.render('chat.html');
@@ -57,7 +93,12 @@ router.get('/camplogin', function(req, res, next) {
     });
 });
 router.get('/das-map', (req, res, next) => {
-    res.render('adminmap.html');
+    Map.find({}, function(err, doc) {
+        doc = JSON.stringify(doc);
+        res.render('adminmap', {
+            data: doc
+        });
+    });
 });
 router.get('/dashboard', function(req, res, next) {
     res.render('admin.html');

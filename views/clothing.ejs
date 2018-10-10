@@ -1,50 +1,17 @@
 <% include partials/header %>
-
-
     <section style="padding-top:20px;padding-bottom:20px;">
         <div class="content">
-            <a href="/clothing">
-                <button type="button" name="button" class="lm-button">
-                <span><i class="fas fa-clipboard-list" style="color:blue;">List</i></span>
-            </button>
-            </a>
-            <a href="#">
-                <button type="button" name="button" class="lm-button">
-                <span><i class="fas fa-map-marked-alt" style="color:green;">Map</i></span>
-            </button>
-            </a>
+            <h3><i class="fas fa-clipboard-list" style="color:blue;">List</i><i class="fas fa-map-marked-alt" style="color:green;">Map</i></h3>
         </div>
     </section>
-<% include partials/map %>
-    <section>
-      <h2>Relief Camps</h2>
-       <div class="panel">
-         <div class="camp-heading">
-           <h3><a href="#"><span class="icon"><i class="fas fa-building"></i>Levi's</span></a></h3>
-         </div>
-         <span><ul>Address: Muradnagar,Ghaziabad Pincode:201206 Availability:400</ul></span>
-      </div>
-      <div class="panel">
-        <div class="camp-heading">
-          <h3><a href="#"><span class="icon"><i class="fas fa-building"></i>JPJ</span></a></h3>
+    <% include partials/map %>
+        <section class="data">
+            <h2>Relief Camps</h2>
+        </section>
         </div>
-        <span><ul>Address: Muradnagar,Ghaziabad Pincode:201206 Availability:350</ul></span>
-     </div>
-     <div class="panel">
-       <div class="camp-heading">
-         <h3><a href="#"><span class="icon"><i class="fas fa-building"></i>First Cry</span></a></h3>
-       </div>
-       <span><ul>Address: Muradnagar,Ghaziabad Pincode:201206 Availability:200</ul></span>
-    </div>
-    <div class="panel">
-      <div class="camp-heading">
-        <h3><a href="#"><span class="icon"><i class="fas fa-building"></i>Sarojini</span></a></h3>
-      </div>
-      <span><ul>Address: Muradnagar,Ghaziabad Pincode:201206 Availability:5000</ul></span>
-   </div>
-    </section>
-    </div>
-    </div>
+        </div>
+        <input hidden type="text" id="name" value="<%= data%>">
 
 
-    <% include partials/footer %>
+
+        <% include partials/footer %>
