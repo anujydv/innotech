@@ -56,6 +56,14 @@ router.get('/water', function(req, res, next) {
         res.render('water', { data: doc });
     });
 });
+router.get('/userlocation', function(req, res, next) {
+    Map.find({}, function(err, doc) {
+        doc = JSON.stringify(doc);
+        res.render('userlocation', {
+            data: doc
+        });
+    });
+});
 router.get('/medicalCare', function(req, res, next) {
     Map.find({
         'helpavailable.medicalCare': 1

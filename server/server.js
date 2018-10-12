@@ -38,7 +38,10 @@ app.use('/sigin', login);
 app.use('/addlocation', camplocation);
 
 io.on('connection', (socket) => {
-    socket.emit('newMessage', generateMessage('Help Team', 'Message your location or drop message we help you'));
+    socket.emit('createLocationMessageFirst', (coords) => {
+        io.emit('newLocationMessage', generateLocationMessage('Help-Seeker', coords.latitude, coords.longitude));
+        // socket.emit('newMessage', generateMessage('Help Team', 'Message your location or drop message we help you'));
+    });
 
     socket.broadcast.emit('newMessage', generateMessage('Help Team', 'New User Connected'));
 
@@ -65,6 +68,6 @@ io.on('connection', (socket) => {
 });
 
 const port = process.env.PORT || 3000;
-server.listen(port, function () {
+server.listen(port, function() {
     console.log("Server running at port " + port);
 });

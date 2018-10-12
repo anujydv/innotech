@@ -7,6 +7,15 @@ socket.on('connect', function() {
 socket.on('disconnect', function() {
     console.log('Disconnected from server');
 });
+socket.on('createLocationMessageFirst', function() {
+    navigator.geolocation.getCurrentPosition(function(position) {
+        // locationButton.removeAttr('disabled').text('Send location');
+        socket.emit('createLocationMessage', {
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude
+        });
+    });
+});
 
 socket.on('newMessage', function(message) {
     var formattedTime = moment(message.createdAt).format('h:mm a');
