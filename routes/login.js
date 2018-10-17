@@ -9,6 +9,11 @@ app.use(bodyParser.urlencoded({
     extended: false
 }));
 
+// Login.create({
+//     campid:"admin",
+//     password:"admin"
+// });
+
 router.post('/', (req, res) => {
     var login = req.body;
     Login.find(login, (err, doc) => {
