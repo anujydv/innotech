@@ -34,7 +34,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.use('/', routes);
-app.use('/sigin', login);
+app.use('/login', login);
 app.use('/addlocation', camplocation);
 
 io.on('connection', (socket) => {

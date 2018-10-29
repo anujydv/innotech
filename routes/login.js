@@ -19,7 +19,7 @@ router.post('/', (req, res) => {
     Login.find(login, (err, doc) => {
         if (doc.length === 0) {
             var flag = 0;
-            res.render('camplogin', { verified: flag });
+            res.render('login', { verified: flag });
         } else {
             res.render('admin.html');
         }

@@ -87,9 +87,9 @@ router.get('/sanitation', function(req, res, next) {
 router.get('/rescue', function(req, res, next) {
     res.render('chat.html');
 });
-router.get('/login', function(req, res, next) {
-    res.render('login.html');
-});
+// router.get('/login', function(req, res, next) {
+//     res.render('login.html');
+// });
 
 // camp dashboard routes
 router.get('/map', function(req, res, next) {
@@ -113,6 +113,9 @@ router.get('/dashboard', function(req, res, next) {
 });
 router.get('/addcamp', function(req, res, next) {
     res.render('register');
+});
+router.get('/updaterescueperson', function(req, res, next) {
+    res.render('rescuedata');
 });
 
 var getcampdata = function(req) {
