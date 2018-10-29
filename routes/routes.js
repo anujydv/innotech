@@ -109,7 +109,7 @@ router.get('/das-map', (req, res, next) => {
     });
 });
 router.get('/dashboard', function(req, res, next) {
-    res.render('admin.html');
+    res.render('admin');
 });
 router.get('/addcamp', function(req, res, next) {
     res.render('register');

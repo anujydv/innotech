@@ -1,0 +1,57 @@
+</div>
+</div>
+
+<script src="assets/js/vendor/jquery-2.1.4.min.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+    var map = new L.Map('map').fitWorld();
+
+    var mb = L.tileLayer.mbTiles('mbtiles/new-delhi.mbtiles', {
+        minZoom: 0,
+        maxZoom: 14
+    }).addTo(map);
+    map.setView(new L.LatLng(28.57600, 77.21250), 10);
+
+    mb.on('databaseloaded', function(ev) {
+        console.info('MBTiles DB loaded', ev);
+    });
+    mb.on('databaseerror', function(ev) {
+        console.info('MBTiles DB error', ev);
+    });
+    var doc = document.querySelector("#name").value;
+    doc = JSON.parse(doc);
+    // console.log(doc);
+    for (var i = 0; i < doc.length; i++) {
+        var str = "<h3>" + doc[i].campname + '</h3><br><b>' + doc[i].address + "," +
+            doc[i].pincode + "</b>";
+        // console.log(str);
+        L.marker([doc[i].location.lat,
+            doc[i].location.lon
+        ]).addTo(map).bindPopup(str).openPopup();
+        // str1 += '<div class="panel"><div class="camp-heading"><h3><a href="#"><span class="icon"><i class="fas fa-building">' +
+        //     doc[i].campname + '</i></span></a></h3></div><span><ul>' + doc[i].address + "," + doc[i].pincode +
+        //     '</ul></span></div>';
+    }
+</script>
+<script>
+    function myFunction() {
+        var input, filter, table, tr, td, i;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+                if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>
+</body>
+
+</html>
