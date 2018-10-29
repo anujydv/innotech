@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Map = require('../server/model/camplocation');
-
+var Chat = require("../server/model/chat");
 var getcampdata = function(req) {
     // var st = 'helpavailable'.concat('.', page);
     Map.find({
@@ -114,8 +114,12 @@ router.get('/dashboard', function(req, res, next) {
 router.get('/addcamp', function(req, res, next) {
     res.render('register');
 });
-router.get('/updaterescueperson', function(req, res, next) {
-    res.render('rescuedata');
+router.get('/updaterescueperson', function(req, res) {
+    Chat.find({}, function(err, doc) {
+        res.render('rescuedata', { data: doc });
+
+    });
+    // res.render('rescuedata');
 });
 
 var getcampdata = function(req) {

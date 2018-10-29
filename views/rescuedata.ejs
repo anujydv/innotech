@@ -9,6 +9,44 @@
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/scss/style.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        #myInput {
+            background-image: url('/css/searchicon.png');
+            background-position: 10px 10px;
+            background-repeat: no-repeat;
+            width: 100%;
+            font-size: 16px;
+            padding: 12px 20px 12px 40px;
+            border: 1px solid #ddd;
+            margin-bottom: 12px;
+        }
+        
+        #myTable {
+            border-collapse: collapse;
+            width: 100%;
+            border: 1px solid #ddd;
+            font-size: 18px;
+        }
+        
+        #myTable th,
+        #myTable td {
+            text-align: left;
+            padding: 12px;
+        }
+        
+        #myTable tr {
+            border-bottom: 1px solid #ddd;
+        }
+        
+        #myTable tr.header,
+        #myTable tr:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
 </head>
 
 <body>
@@ -16,8 +54,7 @@
         <nav class="navbar navbar-expand-sm navbar-default">
 
             <div class="navbar-header">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu"
-                    aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
                 <a class="navbar-brand" href="/">Rescue Dashboard</a>
@@ -31,16 +68,13 @@
                     <h3 class="menu-title"></h3>
                     <!-- /.menu-title -->
                     <li class="menu-item">
-                        <a href="/addcamp" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Add New Camp</a>
+                        <a href="/addcamp" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Add New Camp</a>
                     </li>
                     <li class="menu-item">
-                        <a href="/das-map" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Map</a>
+                        <a href="/das-map" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Map</a>
                     </li>
                     <li class="menu-item">
-                        <a href="updaterescueperson" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Update Rescue Data</a>
+                        <a href="updaterescueperson" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Update Rescue Data</a>
                     </li>
                 </ul>
             </div>
@@ -64,10 +98,61 @@
         </header>
 
         <div class="content mt-3">
+            <h2>People</h2>
 
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+
+            <table id="myTable">
+                <tr class="header">
+                    <th style="width:25%;">Name</th>
+                    <th style="width:25%;">Message</th>
+                    <th style="width:25%;">Day/Date</th>
+                    <th style="width:25%;">Status</th>
+
+                </tr>
+                <%for(var i=0;i<data.length;i++){%>
+
+                    <tr>
+                        <td>
+                            <%=data[i].username%>
+                        </td>
+                        <td>
+                            <%=data[i].message%>
+                        </td>
+                        <td>
+                            <%=data[i].timestamp.toDateString()%>
+                        </td>
+                    </tr>
+                    <%}%>
+
+            </table>
+            <!-- <%for(var i=0;i<data.length;i++){%>
+                <h1>
+                    <%=data[i].username%>
+                </h1>
+                <%}%> -->
         </div>
 
     </div>
+    <script>
+        function myFunction() {
+            var input, filter, table, tr, td, i;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("myTable");
+            tr = table.getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                    if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
 
     <script src="assets/js/vendor/jquery-2.1.4.min.js"></script>
     <script src="assets/js/main.js"></script>
