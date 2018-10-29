@@ -1,13 +1,18 @@
+p{
+  margin:0 0 0 0;
+}
 button,
 button:hover {
   border: none;
   color: #fff;
   padding: 10px;
 }
+
 .chat__messages,
 .chat__sidebar ul {
   list-style-type: none;
 }
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -17,88 +22,86 @@ button:hover {
   font-weight: 300;
   font-size: 0.95rem;
 }
+
 li,
 ul {
   list-style-position: inside;
 }
+
 h3 {
   font-weight: 600;
   text-align: center;
   font-size: 1.5rem;
 }
+
 button {
   background: #F56A6A;
   cursor: pointer;
   transition: background 0.3s ease;
   margin-left: 2px;
 }
+
 button:hover {
   background: #F56A6A;
 }
+
 button:disabled {
   cursor: default;
   background: #F56A6A;
 }
+
 .centered-form {
   display: flex;
   align-items: center;
   height: 100vh;
   width: 100vw;
   justify-content: center;
-  background: -moz-linear-gradient(
-    125deg,
+  background: -moz-linear-gradient(125deg,
     rgba(254, 106, 106, 1) 0,
-    rgba(254, 106, 106, 1) 100%
-  );
-  background: -webkit-gradient(
-    linear,
+    rgba(254, 106, 106, 1) 100%);
+  background: -webkit-gradient(linear,
     left top,
     right bottom,
     color-stop(0, rgba(254, 106, 106, 1)),
-    color-stop(100%, rgba(254, 106, 106, 1))
-  );
-  background: -webkit-linear-gradient(
-    125deg,
+    color-stop(100%, rgba(254, 106, 106, 1)));
+  background: -webkit-linear-gradient(125deg,
     rgba(254, 106, 106, 1) 0,
-    rgba(254, 106, 106, 1) 100%
-  );
-  background: -o-linear-gradient(
-    125deg,
+    rgba(254, 106, 106, 1) 100%);
+  background: -o-linear-gradient(125deg,
     rgba(254, 106, 106, 1) 0,
-    rgba(254, 106, 106, 1) 100%
-  );
-  background: -ms-linear-gradient(
-    125deg,
+    rgba(254, 106, 106, 1) 100%);
+  background: -ms-linear-gradient(125deg,
     rgba(254, 106, 106, 1) 0,
-    rgba(254, 106, 106, 1) 100%
-  );
-  background: linear-gradient(
-    325deg,
+    rgba(254, 106, 106, 1) 100%);
+  background: linear-gradient(325deg,
     rgba(254, 106, 106, 1) 0,
-    rgba(254, 106, 106, 1) 100%
-  );
+    rgba(254, 106, 106, 1) 100%);
 }
 
 .form-field {
   margin: 20px 0;
 }
-.form-field > * {
+
+.form-field>* {
   width: 100%;
 }
+
 .form-field label {
   display: block;
   margin-bottom: 7px;
 }
+
 .form-field input,
 .form-field select {
   border: 1px solid #e1e1e1;
   padding: 10px;
 }
+
 .chat {
   display: flex;
 }
-.chat__footer
-{ 
+
+.chat__footer {
   background: #e6eaee;
   padding: 2px;
 }
@@ -109,6 +112,7 @@ button:disabled {
   height: 100vh;
   width: 100%;
 }
+
 .chat__messages {
   flex-grow: 1;
   overflow-y: scroll;
@@ -116,91 +120,114 @@ button:disabled {
   padding-left: 5%;
   padding-top: 5%;
 }
+
 .chat__footer {
   display: flex;
   flex-shrink: 0;
 }
+
 .chat__footer form {
   flex-grow: 1;
   display: flex;
 }
+
 .chat__footer form * {
   margin-right: 10px;
 }
+
 .chat__footer input {
   border: 1px solid rgb(254, 106, 106, 1);
-  border-radius:1px; 
+  border-radius: 1px;
   padding: 10px;
   flex-grow: 1;
   margin-right: 2px;
 }
+
 .message {
+  margin-bottom: 5px;
   padding: 10px;
+  padding-bottom: 0px;
+  background-color: #F2F2F5;
+  border: 1px solid #A8A8AA;
+  box-shadow: 1px 2px #A8A8AA;
+  border-radius: 5px;
 }
+
 .message__title {
   display: flex;
-  margin-bottom: 5px;
 }
+
 .message__title h4 {
   font-weight: 600;
   margin-right: 10px;
+  margin-bottom: 0px;
 }
+
 .message__title span {
   color: #999;
 }
+
 @media (max-width: 600px) {
   * {
     font-size: 1rem;
   }
+
   .chat__messages {
-  flex-grow: 1;
-  overflow-y: scroll;
-  padding: 10px;
-  padding-left: 5%;
-  padding-top: 10%;
-}
+    flex-grow: 1;
+    overflow-y: scroll;
+    padding: 10px;
+    padding-left: 5%;
+    padding-top: 10%;
+  }
 
   .chat__footer {
     flex-direction: column;
   }
+
   .chat__footer form {
     margin-bottom: 10px;
   }
 }
+
 @media (max-width: 736px) {
   * {
     font-size: 1rem;
   }
+
   .chat__messages {
-  flex-grow: 1;
-  overflow-y: scroll;
-  padding: 10px;
-  padding-left: 5%;
-  padding-top: 7%;
-}
+    flex-grow: 1;
+    overflow-y: scroll;
+    padding: 10px;
+    padding-left: 5%;
+    padding-top: 7%;
+  }
 
   .chat__footer {
     flex-direction: column;
   }
+
   .chat__footer form {
     margin-bottom: 10px;
   }
 }
+
 @media (max-width: 500px) {
   * {
     font-size: 1rem;
   }
+
   .chat__messages {
-  flex-grow: 1;
-  overflow-y: scroll;
-  padding: 10px;
-  padding-left: 5%;
-  padding-top: 10%;
-}
+    flex-grow: 1;
+    overflow-y: scroll;
+    padding: 10px;
+    padding-left: 5%;
+    padding-top: 15%;
+  }
 
   .chat__footer {
     flex-direction: column;
   }
+
   .chat__footer form {
     margin-bottom: 10px;
   }
