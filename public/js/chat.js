@@ -53,7 +53,8 @@ jQuery('#message-form').on('submit', function(e) {
         text: messageTextbox.val()
     }, function() {
         messageTextbox.val('')
-        nameTextbox.val('')
+        messageTextbox.focus();
+        // nameTextbox.val('')
     });
 });
 

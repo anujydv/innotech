@@ -1,0 +1,54 @@
+<!-- <!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Chat | ChatApp</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    
+</head> -->
+
+<% include partials/header1 %>
+    <!-- <div class="chat"> -->
+    <div class="chat__main">
+        <ol id="messages" class="chat__messages"></ol>
+
+        <form id="message-form">
+            <div class="chat__footer">
+                <input name="name" type="text" placeholder="name" autofocus autocomplete="off" />
+                <input name="message" type="text" placeholder="Message" autofocus autocomplete="off" />
+                <button>Send</button>
+                <button id="send-location">Send location</button>
+            </div>
+        </form>
+    </div>
+
+    <script id="message-template" type="text/template">
+        <li class="message">
+            <div class="message__title">
+                <h4>{{from}}</h4>
+                <span>{{createdAt}}</span>
+            </div>
+            <div class="message__body">
+                <p>{{text}}</p>
+            </div>
+        </li>
+    </script>
+
+    <script id="location-message-template" type="text/template">
+        <li class="message">
+            <div>
+                <h4>{{from}}</h4>
+                <span>{{createdAt}}</span>
+            </div>
+            <div class="message__body">
+                <p style="margin:1px 0px 0px 0px;">
+                    <h5>{{msg}}</h5>
+                    <a href="{{url}}" target="_blank">My current location</a>
+                </p>
+            </div>
+        </li>
+    </script>
+    <!-- </div> -->
+    <% include partials/footer1 %>

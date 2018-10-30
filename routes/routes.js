@@ -121,7 +121,9 @@ router.get('/updaterescueperson', function(req, res) {
     });
     // res.render('rescuedata');
 });
-
+router.get('/chat', function(req, res) {
+    res.render('adminchat.html');
+});
 var getcampdata = function(req) {
     // var st = 'helpavailable'.concat('.', page);
     Map.find({

@@ -21,7 +21,7 @@ router.post('/', (req, res) => {
             var flag = 0;
             res.render('login', { verified: flag });
         } else {
-            res.render('admin.html');
+            res.render('admin');
         }
     });
 });
