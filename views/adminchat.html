@@ -1,21 +1,15 @@
-<!-- <!DOCTYPE html>
-
-<html>
-
-<head>
-    <meta charset="utf-8">
-    <title>Chat | ChatApp</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    
-</head> -->
-
 <% include partials/header1 %>
     <!-- <div class="chat"> -->
     <div class="chat__main">
-        <ol id="messages" class="chat__messages"></ol>
+        <ol id="messages" class="chat__messages" style="
+        padding-top: 0px;
+        padding-left: 0px;
+        padding-right: 0px;
+        padding-bottom: 0px;
+        "></ol>
 
         <form id="message-form">
-            <div class="chat__footer">
+            <div class="chat__footer"">
                 <input name="name" type="text" placeholder="name" autofocus autocomplete="off" />
                 <input name="message" type="text" placeholder="Message" autofocus autocomplete="off" />
                 <button>Send</button>
