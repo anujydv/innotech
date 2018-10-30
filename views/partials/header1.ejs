@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Rescue Dashboard</title>
-    <meta name="description" content="Sufee Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
@@ -14,8 +13,8 @@
     <script src="lib/sql.js"></script>
     <script src="lib/Leaflet.TileLayer.MBTiles.js"></script>
     <!-- chat page css -->
-    <!-- <link rel="stylesheet" href="/css/styles.css"> -->
-    <!-- <link rel="stylesheet" href="/css/main.css"> -->
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/main.css">
     <style>
         #map {
             width: 100%;
@@ -28,7 +27,6 @@
         }
         
         #myInput {
-            /* background-image: url('/css/searchicon.png'); */
             background-position: 10px 10px;
             background-repeat: no-repeat;
             width: 100%;
@@ -70,7 +68,7 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="/">Rescue Dashboard</a>
+                <a class="navbar-brand" href="/">Homepage</a>
             </div>
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
@@ -92,25 +90,28 @@
                     <li class="menu-item">
                         <a href="/chat" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Chat</a>
                     </li>
+                    <li class="menu-item">
+                        <a href="/chat" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Logout</a>
+                    </li>
                 </ul>
             </div>
         </nav>
     </aside>
     <div id="right-panel" class="right-panel">
 
-        <!-- Header-->
-        <header id="header" class="header">
-            <div class="header-menu">
-                <div class="col-sm-7"></div>
-                <div class="col-sm-5">
-                    <div class="user-area dropdown float-right">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <a class="nav-link" href="#"><i class="fa fa-power -off"></i>Logout</a>
-                        </a>
+        <!-- Header -->
+        <header id="header" class="header"style="padding-top: 0px;padding-bottom: 0px;border-color: #1D8348;">
+                <div class="header-menu">
+                    <div class="col-sm-7"></div>
+                    <div class="col-sm-5">
+                        <div class="user-area dropdown float-right">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a class="nav-link" href="#" style="color:#239B56;"><i class="fa fa-power -off"></i>Logout</a>
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-        </header>
-
-        <div class="content mt-3">
+                
+            </header>
+            
+            <div class="content mt-3" style="padding-right: 0px;">
