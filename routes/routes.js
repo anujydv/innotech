@@ -115,11 +115,32 @@ router.get('/addcamp', function(req, res, next) {
     res.render('register');
 });
 router.get('/updaterescueperson', function(req, res) {
-    Chat.find({}, function(err, doc) {
+    // console.log(req);
+
+    Chat.find({ status: 0 }, function(err, doc) {
+        // console.log(doc[0]._id);
+
         res.render('rescuedata', { data: doc });
 
     });
-    // res.render('rescuedata');
+});
+router.get("/abc/:id", function(req, res) {
+    console.log(req.params);
+
+    Chat.findByIdAndUpdate(
+        req.params.id, { status: 1 },
+        function(err, doc) {
+            Chat.find({
+                status: 0
+            }, function(err, doc) {
+                // console.log(doc[0]._id);
+
+                res.render('rescuedata', {
+                    data: doc
+                });
+
+            });
+        });
 });
 router.get('/chat', function(req, res) {
     res.render('adminchat.html');

@@ -13,9 +13,13 @@ var chatSchema = new mongoose.Schema({
         default: ""
     },
     timestamp: {
-            type: Date,
-            require:true,
-            default:Date.now()
+        type: Date,
+        require: true,
+        default: Date.now()
+    },
+    status: {
+        type: Number,
+        default: 0
     },
     location: {
         lat: {
