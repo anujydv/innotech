@@ -2,16 +2,6 @@ var express = require('express');
 var router = express.Router();
 var Map = require('../server/model/camplocation');
 var Chat = require("../server/model/chat");
-var getcampdata = function(req) {
-    // var st = 'helpavailable'.concat('.', page);
-    Map.find({
-        'helpavailable.water': 1
-    }, function(err, doc) {
-        // var doc1 = JSON.stringify(doc);
-        console.log(doc1);
-        // return doc;
-    });
-};
 
 // rescue page routes
 router.get('/', function(req, res, next) {
@@ -53,7 +43,9 @@ router.get('/water', function(req, res, next) {
         'helpavailable.water': 1
     }, function(err, doc) {
         doc = JSON.stringify(doc);
-        res.render('water', { data: doc });
+        res.render('water', {
+            data: doc
+        });
     });
 });
 router.get('/userlocation', function(req, res, next) {
@@ -87,9 +79,6 @@ router.get('/sanitation', function(req, res, next) {
 router.get('/rescue', function(req, res, next) {
     res.render('chat.html');
 });
-// router.get('/login', function(req, res, next) {
-//     res.render('login.html');
-// });
 
 // camp dashboard routes
 router.get('/map', function(req, res, next) {
@@ -115,45 +104,39 @@ router.get('/addcamp', function(req, res, next) {
     res.render('register');
 });
 router.get('/updaterescueperson', function(req, res) {
-    // console.log(req);
-
-    Chat.find({ status: 0 }, function(err, doc) {
-        // console.log(doc[0]._id);
-
-        res.render('rescuedata', { data: doc });
-
+    Chat.find({
+        status: 0,
+        'location.lat': {
+            $ne: null
+        },
+        'location.lon': {
+            $ne: null
+        }
+    }, function(err, doc) {
+        res.render('rescuedata', {
+            data: doc
+        });
     });
 });
-router.get("/abc/:id", function(req, res) {
-    console.log(req.params);
-
+router.get("/updatedata/:id", function(req, res) {
     Chat.findByIdAndUpdate(
-        req.params.id, { status: 1 },
+        req.params.id, {
+            status: 1
+        },
         function(err, doc) {
-            Chat.find({
-                status: 0
-            }, function(err, doc) {
-                // console.log(doc[0]._id);
-
-                res.render('rescuedata', {
-                    data: doc
-                });
-
-            });
+            res.redirect('/updaterescueperson');
         });
 });
 router.get('/chat', function(req, res) {
     res.render('adminchat.html');
 });
-var getcampdata = function(req) {
-    // var st = 'helpavailable'.concat('.', page);
-    Map.find({
-        'helpavailable.water': 1
-    }, function(err, doc) {
-        // var doc1 = JSON.stringify(doc);
-        // console.log(doc1);
-        return doc;
-    });
-};
+// camp function
+// var getcampdata = function(req) {
+//     Map.find({
+//         'helpavailable.water': 1
+//     }, function(err, doc) {
+//         return doc;
+//     });
+// };
 
 module.exports = router;

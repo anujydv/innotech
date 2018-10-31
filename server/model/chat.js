@@ -24,11 +24,11 @@ var chatSchema = new mongoose.Schema({
     location: {
         lat: {
             type: Number,
-            default: 0
+            default: null
         },
         lon: {
             type: Number,
-            default: 0
+            default: null
         }
     }
 }, {

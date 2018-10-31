@@ -1,5 +1,6 @@
 <!doctype html>
 <html class="no-js" lang="en.EN">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,13 +9,14 @@
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/scss/style.css">
     <style>
-        .form-control{
-        margin-top: 2px;
-        margin-bottom: 5px;
-    }
-    .m-b-30{
-        margin: 3px 0;
-    }
+        .form-control {
+            margin-top: 2px;
+            margin-bottom: 5px;
+        }
+        
+        .m-b-30 {
+            margin: 3px 0;
+        }
     </style>
 </head>
 
@@ -61,25 +63,38 @@
                         </label>
 
                         <!-- Location -->
-                        <input type="text" name="latitude" class="form-control" style="border:0px; border-width:inherit;border-color:transparent;"
-                        placeholder="latitude">
-                        <input type="text" name="longitude" class="form-control" style="border:0px; border-width:inherit;border-color:transparent;padding-bottom:5px;"
-                        placeholder="longitude">
+                        <input type="text" name="latitude" id="latitude" class="form-control" style="border:0px; border-width:inherit;border-color:transparent;" placeholder="latitude">
+                        <input type="text" name="longitude" id="longitude" class="form-control" style="border:0px; border-width:inherit;border-color:transparent;padding-bottom:5px;" placeholder="longitude">
                         <h6 style="margin:2px 0;">Correct Us If We Aren't Right</h6>
-                            <button type="button" class="btn btn-primary btn-flat m-b-30 m-t-20">Your Location</button>
-                            <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">Register</button>
+                        <button type="button" id="get-location" class="btn btn-primary btn-flat m-b-30 m-t-20">Your Location</button>
+                        <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">Register</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 
-
+    <script>
+        var locationButton = document.querySelector('#get-location');
+        locationButton.addEventListener('click', function() {
+            if (!navigator.geolocation) {
+                return alert('Geolocation not supported by your browser.');
+            }
+            // locationButton.attr('disabled', 'disabled').text('Sending location...');
+            navigator.geolocation.getCurrentPosition(function(position) {
+                document.querySelector('#latitude').value = position.coords.latitude;
+                document.querySelector('#longitude').value = position.coords.longitude
+                    // });
+            }, function() {
+                // locationButton.removeAttr('disabled').text('Send location');
+                alert('Unable to fetch location.');
+            });
+        });
+    </script>
     <script src="assets/js/vendor/jquery-2.1.4.min.js"></script>
     <script src="assets/js/popper.min.js"></script>
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/main.js"></script>
-
-
 </body>
+
 </html>
