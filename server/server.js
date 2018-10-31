@@ -39,6 +39,7 @@ app.use('/addlocation', camplocation);
 
 io.on('connection', (socket) => {
     socket.emit('createLocationMessageFirst', (coords) => {
+        console.log(coords);
         io.emit('newLocationMessage', generateLocationMessage('Help-Seeker', coords.latitude, coords.longitude));
         // socket.emit('newMessage', generateMessage('Help Team', 'Message your location or drop message we help you'));
     });
@@ -46,7 +47,7 @@ io.on('connection', (socket) => {
     socket.broadcast.emit('newMessage', generateMessage('Help Team', 'New User Connected'));
 
     socket.on('createMessage', (message, callback) => {
-        console.log('createMessage', message);
+        // console.log('createMessage', message);
         var msg = generateMessage(message.from, message.text);
         var chat = new Chat({
             username: msg.from,
@@ -63,7 +64,7 @@ io.on('connection', (socket) => {
     });
 
     socket.on('disconnect', () => {
-        console.log('User was disconnected');
+        console.log('User disconnected');
     });
 });
 

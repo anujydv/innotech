@@ -1,5 +1,9 @@
 var socket = io();
+var val = undefined;
 
+function sendAdmin(num) {
+    val = num;
+};
 socket.on('connect', function() {
     console.log('Connected to server');
 });

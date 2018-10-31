@@ -1,4 +1,5 @@
 <!doctype html>
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -86,11 +87,11 @@
                         <a href="/updaterescueperson" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Update Rescue Data</a>
                     </li>
                     <li class="menu-item">
-                        <a href="/chat" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Chat</a>
+                        <a href="/chat" class="dropdown-toggle" data-toggle="dropdown" onclick="sendAdmin(1)" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Chat</a>
                     </li>
-                    <li class="menu-item">
+                    <!-- <li class="menu-item">
                         <a href="/chat" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Logout</a>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
         </nav>
@@ -98,18 +99,18 @@
     <div id="right-panel" class="right-panel">
 
         <!-- Header -->
-        <header id="header" class="header"style="padding-top: 0px;padding-bottom: 0px;border-color: #1D8348;">
-                <div class="header-menu">
-                    <div class="col-sm-7"></div>
-                    <div class="col-sm-5">
-                        <div class="user-area dropdown float-right">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <a class="nav-link" href="#" style="color:#239B56;"><i class="fa fa-power -off"></i>Logout</a>
-                            </a>
-                        </div>
+        <header id="header" class="header" style="padding-top: 0px;padding-bottom: 0px;border-color: #1D8348;">
+            <div class="header-menu">
+                <div class="col-sm-7"></div>
+                <div class="col-sm-5">
+                    <div class="user-area dropdown float-right">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link" href="#" style="color:#239B56;"><i class="fa fa-power -off"></i>Logout</a>
+                        </a>
                     </div>
                 </div>
-                
-            </header>
-            
-            <div class="content mt-3" style="padding-right: 0px;">
+            </div>
+
+        </header>
+
+        <div class="content mt-3" style="padding-right: 0px;">
